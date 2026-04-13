@@ -20,7 +20,7 @@ namespace ProjektGenspil
 
         public Inventory(Game game) 
         {
-            _game = game;
+            inventoryGame = game;
             UniqueId = GenerateUniqueId();
         }
 
@@ -35,7 +35,7 @@ namespace ProjektGenspil
             }
 
             string id = $"{abbreviation}";
-
+            Console.WriteLine(abbreviation);
             return id;
         }
 

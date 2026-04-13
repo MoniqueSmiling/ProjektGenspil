@@ -9,6 +9,7 @@ namespace ProjektGenspil
         private int totalCopies;
         private int availableCopies;
 
+        // Eur
         public string EAN {  get; private set; }
         public string Title { get; set; }
         public int TotalCopies { get; set; }

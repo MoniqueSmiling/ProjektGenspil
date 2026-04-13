@@ -10,13 +10,14 @@ namespace ProjektGenspil
      
             Datahandler gameHandler = new Datahandler(".\\Games.txt");
             Datahandler customerHandler = new Datahandler(".\\Customers.txt");
-            Datahandler reservationHandler = new Datahandler(".\\Reservations");
+            Datahandler reservationHandler = new Datahandler(".\\Reservations.txt");
             Datahandler inventoryHandler = new Datahandler("\\inventoryGames.txt");
-     
+
             List<Game> loadedGames = gameHandler.LoadGamesFromFile();
             List<Customer> loadedCustomers = customerHandler.LoadCustomersFromFile();
-             
-            List<Game> games = new List<Game>() 
+            List<Reservation> reservations = reservationHandler.LoadReservationsFromFile();
+
+            List<Game> games = new List<Game>()
             {
                 new Game("080742094680","Munchkin"),
                 new Game("080742094505","Munchkin 2: Unnatural Axe"),
@@ -30,6 +31,8 @@ namespace ProjektGenspil
                 new Customer( 1, "Susan Himmelblå", "susanhimmeblaa@superman.com", "")
             };
 
+            Game munchkin5 = new Game("080742094468", "Munchkin 5: De-Ranged");
+            Inventory inventoryGame = new Inventory(munchkin5);
 
             foreach (Game game in loadedGames)
             {

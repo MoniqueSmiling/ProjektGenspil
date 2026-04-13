@@ -108,9 +108,30 @@ namespace ProjektGenspil
         {
         }
         // TODO Needs to be List<Reservation> instead of string for return
-        public string LoadReservationsFromFile() 
+        public List<Reservation> LoadReservationsFromFile() 
         {
-            return ""; 
+            List<Reservation> reservations = new List<Reservation>();
+
+            if (!File.Exists(FilePath))
+            {
+                Console.WriteLine("Ingen fil - starter tomt.");
+                return reservations;
+            }
+
+            using (StreamReader sr = new StreamReader(FilePath))
+            {
+                string line;
+                // Imens linjen i tekst-filen ikke er nul...
+                while ((line = sr.ReadLine()) != null)
+                {
+                    // ... og den ikke er null eller empty...
+                    if (!string.IsNullOrEmpty(line))
+                    {
+                        reservations.Add(Reservation.FromString(line));
+                    }
+                }
+            }
+            return customers;
         }
 
 
