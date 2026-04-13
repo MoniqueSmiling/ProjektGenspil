@@ -9,7 +9,7 @@ namespace ProjektGenspil
         {
      
             Datahandler gameHandler = new Datahandler(".\\Games.txt");
-            Datahandler customerHandler = new Datahandler(".\\Customer.txt");
+            Datahandler customerHandler = new Datahandler(".\\Customers.txt");
             Datahandler reservationHandler = new Datahandler(".\\Reservations");
             Datahandler inventoryHandler = new Datahandler("\\inventoryGames.txt");
      

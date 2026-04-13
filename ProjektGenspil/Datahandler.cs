@@ -16,6 +16,14 @@ namespace ProjektGenspil
         }
 
 
+        // ==== GAMES ====
+        // A general overhead of all the games and general information logged for future use.
+
+
+        /// <summary>
+        /// A method that saves overall info on games to a local file Games.txt.
+        /// </summary>
+        /// <param name="games"></param>
         public void SaveGamesToFile(List<Game> games) 
         { 
          
@@ -32,6 +40,11 @@ namespace ProjektGenspil
             }
             Console.WriteLine($"{games.Count} spil er gemt i {FilePath}");
         }
+
+        /// <summary>
+        /// A method that loads overall info on games to the system from a local file named Games.txt.
+        /// </summary>
+        /// <param name="games"></param>
 
         public List<Game> LoadGamesFromFile() 
         { 
@@ -59,6 +72,11 @@ namespace ProjektGenspil
             return games; 
         }
 
+        // ==== STOCK ====
+        // A general overhead of all the games available in the inventory.
+        // Uses Games ID.
+
+        // TODO: Not finished.
         public void SaveStockToFile(List<Inventory> inventoryGames) 
         {
             using (StreamWriter sw = new StreamWriter(FilePath))
@@ -74,20 +92,36 @@ namespace ProjektGenspil
             }
             Console.WriteLine($"{inventoryGames.Count} spil er gemt i {FilePath}");
         }
+
+        
         public string LoadStockFromFile() 
         { 
             return ""; 
         }
 
+
+        // ==== RESERVATIONS ====
+        // A general overhead of all the outstanding reservations in the system.
+        // Uses CustomerId, EAN to check if a game has become available.
+
         public void SaveReservationsToFile(List<Reservation> reservations) 
         {
         }
+        // TODO Needs to be List<Reservation> instead of string for return
         public string LoadReservationsFromFile() 
         {
             return ""; 
         }
 
 
+        // ==== CUSTOMERS ====
+        // A general overhead of all relevant customer contact information.
+        // Used by Reservations.
+
+        /// <summary>
+        /// A method that saves customer to  local file Customers.txt.
+        /// </summary>
+        /// <param name="customers"></param>
         public void SaveCustomersToFile(List<Customer> customers) 
         {
             using (StreamWriter sw = new StreamWriter(FilePath))
@@ -102,8 +136,13 @@ namespace ProjektGenspil
                 }
             }
             Console.WriteLine($"{customers.Count} kunder er gemt i {FilePath}");
-
         }
+
+
+        /// <summary>
+        /// A method that loads the customers from local file Customers.txt.
+        /// </summary>
+        /// <returns></returns>
         public List<Customer> LoadCustomersFromFile() 
         {
             List<Customer> customers = new List<Customer>();
@@ -129,6 +168,5 @@ namespace ProjektGenspil
             }
             return customers;
         }
-
     }
 }
