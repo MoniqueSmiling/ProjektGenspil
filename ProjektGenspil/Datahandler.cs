@@ -106,8 +106,10 @@ namespace ProjektGenspil
 
         public void SaveReservationsToFile(List<Reservation> reservations) 
         {
+
         }
         // TODO Needs to be List<Reservation> instead of string for return
+        /*
         public List<Reservation> LoadReservationsFromFile() 
         {
             List<Reservation> reservations = new List<Reservation>();
@@ -134,7 +136,7 @@ namespace ProjektGenspil
             return customers;
         }
 
-
+        */
         // ==== CUSTOMERS ====
         // A general overhead of all relevant customer contact information.
         // Used by Reservations.
@@ -149,6 +151,8 @@ namespace ProjektGenspil
             {
                 foreach (Customer customer in customers)
                 {
+                    foreach (Reservation reservation in customer.reservations)
+                        Console.WriteLine($"Reservation({reservation.ReservationsId}, {reservation.ReservationsTime}, {reservation.Status})");
                     string line;
                     if ((line = customer.ToString()) != null)
                     {
@@ -183,6 +187,7 @@ namespace ProjektGenspil
                     // ... og den ikke er null eller empty...
                     if (!string.IsNullOrEmpty(line))
                     {
+                        Console.WriteLine(line);
                         customers.Add(Customer.FromString(line));
                     }
                 }

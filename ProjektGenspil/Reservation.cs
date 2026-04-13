@@ -5,49 +5,64 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ProjektGenspil
 {
-    internal class Reservation
+    public class Reservation
     {
-        private int _reservationId;
+        private string _reservationsId;
         private DateTime _reservationTime;
         
         private string _status;
+        private SystemManager _systemManager;
 
-        private Customer _customer; 
 
-        public Reservation(Customer customer, int reservationId, DateTime reserationTime, string Status)
+        Customer _customer;
+
+
+        public string ReservationsId;
+        public string Status;
+        public DateTime ReservationsTime;
+ 
+
+        public Reservation(Customer customer, DateTime reservationTime, string Status)
         {
             _customer = customer;
-            _reservationId = reservationId;
-            _reservationTime = reserationTime;
+            _reservationTime = reservationTime;
             _status = Status;
+            _reservationsId = GenerateUniqueId();
         }
 
 
 
-        /*
+        
          public string GenerateUniqueId()
          {
-             string finalID = "RE";
-             foreach (string word in words)
+             string finalId = $"RE{_customer.CustomerId}{_reservationTime}";
+             /*foreach (string word in words)
              {
                  abbreviation += word[0];
              }
-
-             string id = $"{abbreviation}";
-             Console.WriteLine(abbreviation);
-             return id;
+             */
+             // string id = $"{abbreviation}";
+             // Console.WriteLine(finalId);
+             return finalId;
          }
-        */
+        
+
+        public override string ToString()
+        {
+            return $"{_reservationsId}, {_reservationTime}, {_status}";
+        }
         /*
-        public static Reservation FromString(string data) 
+        public static Reservation FromString(string data)
         {
             string[] details = data.Split(',');
-            string customerId = details[0];
-            // Customer ?
-            string title = details[1];
-            return new Reservation();
+            string reservationsId = details[0];
+            DateTime reservationTime = Convert.ToDateTime(details[1]);
+            string status = details[2]; // TODO: ReservationState Enum
+            return new Reservation(reservationsId, reservationTime, status);
         }
         */
+
+
 
     }
 }
