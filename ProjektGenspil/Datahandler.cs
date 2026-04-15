@@ -152,10 +152,11 @@ namespace ProjektGenspil
                 foreach (Customer customer in customers)
                 {
                     foreach (Reservation reservation in customer.reservations)
-                        Console.WriteLine($"Reservation({reservation.ReservationsId}, {reservation.ReservationsTime}, {reservation.Status})");
+                        Console.WriteLine($"This is a reservation: Reservation({reservation.ReservationsId} {reservation.ReservationsTime}, {reservation.Status})");
                     string line;
+                   
                     if ((line = customer.ToString()) != null)
-                    {
+                    {   
                         sw.WriteLine(line);
                     }
                 }

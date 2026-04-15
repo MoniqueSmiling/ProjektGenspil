@@ -14,6 +14,7 @@ namespace ProjektGenspil
         public string Title { get; set; }
         public int TotalCopies { get; set; }
         public int AvailableCopies { get; set;}
+        // public bool 
 
 
         public Game(string eAN, string title)

@@ -33,7 +33,8 @@ namespace ProjektGenspil
 
         public override string ToString()
         {
-            return $"{CustomerId}, {Name}, {Email}, {Phone}, {reservations.ToString()}";
+
+            return $"{CustomerId}, {Name}, {Email}, {Phone}";
         }
 
 
@@ -44,7 +45,7 @@ namespace ProjektGenspil
             string name = details[1];
             string email = details[2];
             string phone = details[3];
-            string reservations = details[4];
+            //string reservations = details[4];
             // if (details[4] != null)
             return new Customer(id, name, email, phone);
         }
