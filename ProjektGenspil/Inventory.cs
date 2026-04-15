@@ -29,13 +29,14 @@ namespace ProjektGenspil
         {
             string[] words = inventoryGame.Title.Split(' ');
             string abbreviation = "";
+           
             foreach (string word in words)
             {
                 abbreviation += word[0];
             }
 
-            string id = $"{abbreviation}";
-            Console.WriteLine(abbreviation);
+            string id = $"{abbreviation}{_games.Count()}";
+            Console.WriteLine(id);
             return id;
         }
 

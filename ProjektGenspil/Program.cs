@@ -31,12 +31,12 @@ namespace ProjektGenspil
 
             List<Reservation> reservations = new List<Reservation>()
             {
-                new Reservation(susan, DateTime.Now, "Pending" )
+                new Reservation(susan,"080742094468", "Pending" )
             };
                     
             customers.Add(susan);
 
-            /*
+            
             Game munchkin5 = new Game("080742094468", "Munchkin 5: De-Ranged");
             Inventory inventoryGame = new Inventory(munchkin5);
 
@@ -44,17 +44,17 @@ namespace ProjektGenspil
             {
                 Console.WriteLine(game.ToString());
             }
-            */
+            
 
-            foreach (Customer customer in customers)
+            foreach (Game customer in loadedGames)
             {
-                Console.WriteLine("Customer information: " + customer);
+                Console.WriteLine("Game information: " + customer);
             }
 
-            foreach (Customer customer in customers)
+            foreach (Customer customer in loadedCustomers)
             {
                 foreach (Reservation reservation in reservations)
-                    Console.WriteLine($"Reservation({reservation.ReservationsId}, {reservation.ReservationsTime}, {reservation.Status})");
+                    Console.WriteLine("Reservations information:" + reservation.ToString());
             }
 
 
@@ -62,6 +62,13 @@ namespace ProjektGenspil
             customerHandler.SaveCustomersToFile(customers);
 
 
+
+
+            string reminderMenu = $"""
+                ------------------------------------------
+                
+                ------------------------------------------
+                """;
          
 
 
