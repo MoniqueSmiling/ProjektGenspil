@@ -4,7 +4,8 @@ using System.Text;
 
 namespace ProjektGenspil
 {
-    public interface IUniqueID
+    public class UIManager
     {
+
     }
 }
