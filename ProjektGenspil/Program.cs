@@ -7,6 +7,25 @@ namespace ProjektGenspil
     {
         static void Main(string[] args)
         {
+
+            bool isRunning = true;
+            while (isRunning)
+            {
+                Console.Clear();
+                Console.WriteLine("----------GenSpil Lagerstyring----------");
+                Console.WriteLine("1. Administer spil");
+                Console.WriteLine("2. ");
+                Console.WriteLine("3. ");
+
+                string choice = Console.ReadLine();
+                switch (choice)
+                {
+                    case "1":
+                        //Kald spilmenu
+                        break;
+                }
+
+            }
      
             Datahandler gameHandler = new Datahandler(".\\Games.txt");
             Datahandler customerHandler = new Datahandler(".\\Customers.txt");
