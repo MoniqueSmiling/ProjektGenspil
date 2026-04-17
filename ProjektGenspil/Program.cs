@@ -32,7 +32,38 @@ namespace ProjektGenspil
                 switch (choice)
                 {
                     case "1":
-                        //Kald spilmenu
+                        static void AdministerGames()
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Administrer Spil");
+                            Console.WriteLine("1. Tilføj Spil");
+                            Console.WriteLine("2. Opdater spil detaljer");
+                            Console.WriteLine("3. Slet spil");
+                            Console.WriteLine("4. Back to Main Menu");
+                            Console.SetCursorPosition(12, Console.CursorTop - 1);
+                            string adminChoice = Console.ReadLine();
+                            switch (adminChoice)
+                            {
+                                case "1":
+                                    // Tilføj spil
+                                    break;
+                                case "2":
+                                    // Opdater spil detaljer
+                                    break;
+                                case "3":
+                                    // Slet spil
+                                    break;
+                                case "4":
+                                    // Return to main menu
+                                    return;
+                                default:
+                                    Console.WriteLine("Ikke en valgmulighed");
+                                    Console.ReadKey();
+                                    AdministerGames();
+                                    break;
+                            }
+                        }
+
                         break;
                     case "2":
                         //Oversigt over spil(?)
