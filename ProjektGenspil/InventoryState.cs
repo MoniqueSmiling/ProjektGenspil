@@ -4,7 +4,11 @@ using System.Text;
 
 namespace ProjektGenspil
 {
-    public interface IUniqueID
+    public enum InventoryState
     {
+        InStock,
+        Reserved,
+        Waitlisted,
+        Repair,
     }
 }

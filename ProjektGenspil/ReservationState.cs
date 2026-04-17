@@ -4,7 +4,11 @@ using System.Text;
 
 namespace ProjektGenspil
 {
-    public interface IUniqueID
+    public enum ReservationState
     {
+        Reserved,
+        Pending,
+        Fulfilled,
+        Cancelled
     }
 }

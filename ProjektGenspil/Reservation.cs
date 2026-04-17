@@ -9,56 +9,41 @@ namespace ProjektGenspil
     {
         private string _reservationsId;
         private DateTime _reservationTime;
-        
-        private string _status;
-        private SystemManager _systemManager;
-
 
         Customer _customer;
 
         public string ReservationsId { get; set; }
-        public string Status { get; set; }
+        public ReservationState ReservationState { get; set; }
         public DateTime ReservationsTime { get; set; }
-        public string GameId { get; set; } 
+        public string GameId { get; set; }
+        private Inventory _inventoryGame { get; set; }
 
-        public Reservation(Customer customer, string gameId, string status)
+        public Reservation(Customer customer, string gameId, ReservationState reservationState)
         {
             _customer = customer;
             GameId = gameId;
-            Status = status;
+            ReservationState = reservationState;
             ReservationsTime = DateTime.Now;
-            ReservationsId = GenerateUniqueId(ReservationsTime);
-
+            ReservationsId = GenerateUniqueId(ReservationsTime, customer.CustomerId, gameId);
         }
 
-        public Reservation(Customer customer, string gameId, DateTime reservationsTime, string status)
+        public Reservation(Customer customer, string gameId, DateTime reservationsTime, ReservationState reservationState)
         {
             _customer = customer;
             GameId = gameId;
-            Status = status;
+            ReservationState = reservationState;
             ReservationsTime = reservationsTime;
-            ReservationsId = GenerateUniqueId(ReservationsTime);
-
+            ReservationsId = GenerateUniqueId(ReservationsTime, customer.CustomerId, gameId);
         }
 
-
-
-
-        public string GenerateUniqueId(DateTime reservationsTime)
+        public string GenerateUniqueId(DateTime reservationsTime, string customerId, string gameId)
          {
-             string finalId = $"RE{reservationsTime.ToString("ddMMyy")}";
-             /*foreach (string word in words)
-             {
-                 abbreviation += word[0];
-             }
-             */
-             // string id = $"{abbreviation}";
-             // Console.WriteLine(finalId);
+             string finalId = $"RE{reservationsTime.ToString("ddMMyy")}{customerId}";
              return finalId;
          }
         
 
-        public override string ToString() => $"{ReservationsId},{GameId},{ReservationsTime.ToString("dd/MM/yyyy")}, {Status}";
+        public override string ToString() => $"{ReservationsId},{GameId},{ReservationsTime.ToString("dd/MM/yyyy")}, {ReservationState}";
         
         /*
         public static Reservation FromString(string data)
