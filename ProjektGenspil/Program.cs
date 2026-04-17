@@ -38,22 +38,43 @@ namespace ProjektGenspil
                             Console.WriteLine("Administrer Spil");
                             Console.WriteLine("1. Tilføj Spil");
                             Console.WriteLine("2. Opdater spil detaljer");
-                            Console.WriteLine("3. Slet spil");
-                            Console.WriteLine("4. Back to Main Menu");
+                            Console.WriteLine("3. Tilføj spil eksemplar");
+                            Console.WriteLine("4. Slet spil");
+                            Console.WriteLine("5. Back to Main Menu");
                             Console.SetCursorPosition(12, Console.CursorTop - 1);
                             string adminChoice = Console.ReadLine();
                             switch (adminChoice)
                             {
                                 case "1":
-                                    // Tilføj spil
-                                    break;
+                                    AddGame();
+                                    static void AddGame(List<Game> _games)
+                                    {
+                                        Console.Clear();
+                                        Console.WriteLine("Tilføj Spil");
+                                        Console.WriteLine("Indtast spil detaljer:");
+                                        Console.Write("Spil ID: ");
+                                        string gameId = Console.ReadLine();
+                                        Console.Write("Spil Navn: ");
+                                        string gameName = Console.ReadLine();
+                                        for (int i = 0; i < _games.Count; i++)
+                                        {
+                                            Console.WriteLine($"ID: {_games[i].EAN}, Navn: {_games[i].Title}");
+                                        }
+                                        _games.Add(new Game(gameId, gameName));
+
+                                    }
+                                        break;
                                 case "2":
                                     // Opdater spil detaljer
                                     break;
+
                                 case "3":
-                                    // Slet spil
+                                    // Tilføj spil eksemplar
                                     break;
                                 case "4":
+                                    // Slet spil
+                                    break;
+                                case "5":
                                     // Return to main menu
                                     return;
                                 default:
